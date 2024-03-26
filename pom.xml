@@ -3,6 +3,11 @@
   <groupId>eventplanner</groupId>
   <artifactId>eventplanner</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
+		<properties>
+  <sonar.organization>haz2024</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
   <dependencies>
 	  
 	  <dependency>
@@ -71,8 +76,5 @@
     
 
 </dependencies>
-	<properties>
-  <sonar.organization>haz2024</sonar.organization>
-  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-</properties>
+
 </project>
