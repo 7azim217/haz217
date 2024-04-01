@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.List;
+
 
 public class SignUp {
 
@@ -18,7 +18,7 @@ public class SignUp {
     private static final AtomicReference<Pattern> emailPattern = new AtomicReference<>();
 	 public Map<String, String> userData;
 	    protected Map<String, CoUserData> couserData;
- List<User> userList = new ArrayList<>();
+ ArrayList<User> userList = new ArrayList<User>();
  User u =new User();
 
 	
