@@ -16,7 +16,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		 snippets =SnippetType.CAMELCASE,
 		 glue="partyplanner")
 
-public class AcceptanseTest {
+public class AcceptanceTest {
 	
 	 
 }
