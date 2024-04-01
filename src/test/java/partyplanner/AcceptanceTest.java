@@ -1,20 +1,18 @@
 package partyplanner;
 
 
-import java.util.Scanner;
-
 import org.junit.runner.RunWith;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import io.cucumber.junit.CucumberOptions.SnippetType;
 
  @RunWith(Cucumber.class)
  @CucumberOptions(
-		 features="Features",
-		 plugin= { "summary","html:target/cucumber/test-summary.html"},
-		 monochrome= true,
-		 snippets =SnippetType.CAMELCASE,
-		 glue="partyplanner")
+		 features="src/test/resources",
+	         monochrome= true,
+		 snippets =CucumberOptions.SnippetType.CAMELCASE,
+	         glue={"partyplanner"},
+		 plugin= { "summary","html:target/cucumber/test-summary.html"}
+ )
 
 public class AcceptanceTest {
 	
