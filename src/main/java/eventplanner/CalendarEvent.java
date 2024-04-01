@@ -23,12 +23,12 @@ public class CalendarEvent {
   
 
 	public CalendarEvent() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 
 
-	// Getters and setters
+
     public String getEventName() {
         return eventName;
     }
@@ -61,17 +61,17 @@ public class CalendarEvent {
     }
 
 	public String getSuccessMessage() {
-		// TODO Auto-generated method stub
+		
 		return "Event details added to calendar successfully.";
 	}
 
 	public String getEmailRejectionMessage() {
-		// TODO Auto-generated method stub
+		
 		return "rejected";
 	}
 
 	public String gettSuccessMessage() {
-		// TODO Auto-generated method stub
+		
 		return "Event details updated successfully.";
 	}
 }
