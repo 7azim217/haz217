@@ -1,17 +1,18 @@
 package eventplanner;
 
+
 import java.util.ArrayList;
-import java.util.Date;
+
+import java.util.List;
 
 public class CalendarEvent {
     private String eventName;
     private String eventDate;
     private String eventPlace;
 	String email;
-    public  static ArrayList<CalendarEvent> eList = new ArrayList<CalendarEvent>();
-    public  static ArrayList<CalendarEvent> aList = new ArrayList<CalendarEvent>();
+    public  static List<CalendarEvent> eList = new ArrayList<>();
+    public  static List<CalendarEvent> aList = new ArrayList<>();
 
-    // Constructor
     public CalendarEvent(String eventName, String eventDate, String eventPlace) {
         this.eventName = eventName;
         this.eventDate = eventDate;
@@ -74,4 +75,3 @@ public class CalendarEvent {
 		return "Event details updated successfully.";
 	}
 }
-
