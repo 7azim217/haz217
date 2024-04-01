@@ -1,19 +1,20 @@
 package eventplanner;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 
 
 public class Venue {
 	 private String name;
-	    private String status; // indoor or outdoor
+	    private String status; 
 	    private String location;
 	    private int capacity;
 	    private  boolean availability;
 	    private double pricing;
-	  public  static ArrayList<Venue> venueList = new ArrayList<Venue>();
+	  public  static List<Venue> venueList = new ArrayList<>();
 
-	    // Constructor
+	    
 	    public Venue() {
 	    	
 	    }
@@ -24,7 +25,6 @@ public class Venue {
 	        this.capacity = capacity;
 	        this.availability = availability;
 	        this.pricing = pricing;
-	     //   allVenues.add(this);
 	    }
 
 	    public static Venue getVenueByName(String name) {
@@ -35,7 +35,6 @@ public class Venue {
 	        }
 	        return null; // Venue not found with the given name
 	    }
-	    // Getters and Setters
 	    public String getName() {
 	        return name;
 	    }
@@ -90,7 +89,6 @@ public class Venue {
 	        }
 	    }
 
-	    // toString() method to represent Venue object as String
 	    @Override
 	    public String toString() {
 	        return "Venue{" +
