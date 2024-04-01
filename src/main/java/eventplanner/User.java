@@ -7,7 +7,7 @@ public class User {
     private String username;
     private String password;
     private static String email;
-    private static final Logger logger = Logger.getLogger(YourClassName.class.getName());
+    private static final Logger logger = Logger.getLogger(User.class.getName());
 
     public User() {}
 
