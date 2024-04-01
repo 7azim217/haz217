@@ -58,7 +58,7 @@ public class UserWorksTest {
 	@Then("System refines search results based on the applied filters.")
 	public void system_refines_search_results_based_on_the_applied_filters() {
 		 assertTrue(result);
-	        assertEquals("Search results refined successfully.","Search results refined successfully.");
+	        assertEquals("Search results refined successfully.",user.getSuccessMessage());
 	}
 
 	@Given("User is on the Profile screen.")
@@ -74,7 +74,7 @@ public class UserWorksTest {
 	@Then("User can modify profile details such as name, profile picture, and contact information.")
 	public void user_can_modify_profile_details_such_as_name_profile_picture_and_contact_information() {
 		 assertTrue(result);
-	        assertEquals("Profile details updated successfully.", "Profile details updated successfully.");
+	        assertEquals("Profile details updated successfully.", user.getSuccessMessage());
 	}
 
 	@When("User selects the option to provide feedback.")
@@ -110,7 +110,7 @@ public class UserWorksTest {
 
 	@Then("the Details should be sent to the admin for approval")
 	public void the_details_should_be_sent_to_the_admin_for_approval() {
-		  assertEquals("Pending approval from admin.","Pending approval from admin.");
+		  assertEquals("Pending approval from admin.",user.getSuccessMessage());
 	}
 
 	@When("user  attempt to reserve a new event with a date and venue that is already assigned to another event")
