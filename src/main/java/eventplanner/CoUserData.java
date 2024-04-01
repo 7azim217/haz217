@@ -10,8 +10,8 @@ public class CoUserData {
     private static String email;
     private String password;
    
-    static List<Event> events = new ArrayList<>();
-    static List<Event> aevents = new ArrayList<>();
+    static ArrayList<Event> events = new ArrayList<Event>();
+    static ArrayList<Event> aevents = new ArrayList<Event>();
   
     
    
@@ -29,7 +29,7 @@ public class CoUserData {
         return name;
     }
 
-
+    // Setter for name
     public void setName(String name) {
         this.name = name;
     }
@@ -38,7 +38,7 @@ public class CoUserData {
         return email;
     }
 
-
+    // Setter for email with validation
     public static  boolean setEmail(String email) {
         
         	 CoUserData.email = email;
@@ -50,9 +50,10 @@ public class CoUserData {
         return password;
     }
 
-    
+    // Setter for password with basic validation
     public boolean setPassword(String password) {
-      
+        // Example of a simple password validation: not empty
+        // You can expand this with more complex checks as needed
         if (password != null && !password.trim().isEmpty()) {
             this.password = password;
             return true;
@@ -109,7 +110,7 @@ public class CoUserData {
         }
 
         public Event() {
-			
+			// TODO Auto-generated constructor stub
 		}
 
 		static boolean isValidDate(String date) {
@@ -212,7 +213,7 @@ public class CoUserData {
         }
     }
 	public String getAdminApprovalStatus() {
-		
+		// TODO Auto-generated method stub
 		return "pending";
 	}
 
