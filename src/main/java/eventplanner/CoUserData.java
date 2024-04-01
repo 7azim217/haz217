@@ -9,19 +9,19 @@ public class CoUserData {
     private String name;
     private static String email;
     private String password;
-
+   
     static ArrayList<Event> events = new ArrayList<Event>();
     static ArrayList<Event> aevents = new ArrayList<Event>();
-
-
-
-
+  
+    
+   
+    
      public CoUserData(String name, String email, String password) {
         this.name = name;
         CoUserData.email = email;
         this.password = password;
-
-
+    
+        
     }
 
 
@@ -40,10 +40,10 @@ public class CoUserData {
 
     // Setter for email with validation
     public static  boolean setEmail(String email) {
-
+        
         	 CoUserData.email = email;
             return true;
-
+        
     }
 
     public String getPassword() {
@@ -62,7 +62,7 @@ public class CoUserData {
     }
 
 
-
+  
     public String editProfile(String newName, String newEmail, String newPassword) {
         boolean emailUpdated = setEmail(newEmail);
         boolean passwordUpdated = setPassword(newPassword);
@@ -92,7 +92,7 @@ public class CoUserData {
         private String description;
         public static String e;
         private static final String DATE_PATTERN = "^\\d{2}/\\d{2}/\\d{4}$";
-
+        
 
         public Event(String eventName, String eventDate, String location, String description,double eventPrice,String status) {
             this.eventName = eventName;
@@ -103,7 +103,7 @@ public class CoUserData {
             this.eventPrice = eventPrice;
             if (isValidDate(eventDate)) {
                 this.eventDate = eventDate;
-
+                
             } else {
                 throw new IllegalArgumentException("Invalid date format. Please use dd/mm/yyyy format.");
             }
@@ -156,7 +156,7 @@ public class CoUserData {
         public void settPrice(double price) {
             this.eventPrice = price;
         }
-
+      
         public void settDate(String date) {
             this.eventDate = date;
         }
@@ -169,13 +169,13 @@ public class CoUserData {
 	        }
 	        return null; // Event not found
 		}
-
+        
 		@Override
 	    public String toString() {
 	        return "Event Name: " + eventName + "\n" +
 	                "Event Date: " + eventDate + "\n" +
 	                "Location: " + location + "\n" ;
-
+	               
 	    }
 
     }
@@ -187,18 +187,18 @@ public class CoUserData {
     private void sendForAdminApproval(String actionType, String details) {
 
         System.out.println("Sent for admin approval: " + actionType + " - " + details);
-
+        
     }
 
 
-
+   
     public static void filterByLocation(List<CoUserData.Event> events, String location) {
         System.out.println("Events in location '" + location + "':");
         for (CoUserData.Event event : events) {
             if (event.getLocation().equalsIgnoreCase(location)) {
                 System.out.println("Name: " + event.getEventName() + ", Date: " + event.getEventDate() + ", Location: " + event.getLocation() + ", Description: " + event.getDescription());
             }else {System.out.println("No Events");
-
+            
         }
     }}
 
@@ -220,3 +220,6 @@ public class CoUserData {
 
     
 }
+
+
+	
