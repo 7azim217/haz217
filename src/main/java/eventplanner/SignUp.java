@@ -162,7 +162,7 @@ public class SignUp {
 	    }
 	}
 	
-	  public boolean signup_couser() {
+	  public boolean scouser() {
 			if (isValiadcouser()) {
 				 
 				 couserData.put(username, new CoUserData(Name, Email, Pass));
