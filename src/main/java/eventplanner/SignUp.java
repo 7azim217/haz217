@@ -17,7 +17,7 @@ public class SignUp {
     private static final AtomicReference<Pattern> emailPattern = new AtomicReference<>();
 	 public Map<String, String> userData;
 	    protected Map<String, CoUserData> couserData;
- ArrayList<User> userList = new ArrayList<User>();
+ List<User> userList = new ArrayList<>();
  User u =new User();
 
 	
