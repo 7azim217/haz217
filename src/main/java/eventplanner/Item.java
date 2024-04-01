@@ -10,12 +10,12 @@ public class Item {
     private String description;
     private String category;
     public static ArrayList<Item> itemList = new ArrayList<Item>();
-    static  ArrayList<Item> foodList = new ArrayList<Item>();
-    static ArrayList<Item> singersList = new ArrayList<Item>();
-    static    ArrayList<Item> decorationsList = new ArrayList<Item>();
-    static ArrayList<Item> photographyStudiosList = new ArrayList<Item>();
+    static  List<Item> foodList = new ArrayList<Item>();
+    static List<Item> singersList = new ArrayList<>();
+    static   List<Item> decorationsList = new ArrayList<>();
+    static List<Item> photographyStudiosList = new ArrayList<>();
 
-    // Constructor
+   
     public Item() {}
     public Item(String name, double price, boolean availability, String description, String category) {
         this.name = name;
@@ -33,7 +33,7 @@ public class Item {
         return null; // Item not found with the given name
     }
 
-    // Getters and Setters
+  
     public String getName() {
         return name;
     }
@@ -89,7 +89,7 @@ public class Item {
         }
     }
 
-    // toString() method to represent Item object as String
+    
     @Override
     public String toString() {
         return "Item{" +
