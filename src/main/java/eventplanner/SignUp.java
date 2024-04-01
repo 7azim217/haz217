@@ -3,10 +3,9 @@ package eventplanner;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import eventplanner.CoUserData;
 
 public class SignUp {
 
@@ -15,8 +14,8 @@ public class SignUp {
 	public String rePass;
 	public String Email;
 	public String Name;
-	
-	 protected Map<String, String> userData;
+    private static final AtomicReference<Pattern> emailPattern = new AtomicReference<>();
+	 public Map<String, String> userData;
 	    protected Map<String, CoUserData> couserData;
  ArrayList<User> userList = new ArrayList<User>();
  User u =new User();
@@ -27,67 +26,51 @@ public class SignUp {
 	        couserData = new HashMap<String, CoUserData>();
 		
 	}
-	public boolean signUp(String username, String password ,String repass,String ee) {
-		   if(password.equals(repass)) {
-			   
-			   if (!isStrongPassword(password)) {
-			    	System.out.println("your entered paas is week,please rewrite password");
-			    	return true;
-			    }
-			   
-			     if (!userData.containsKey(username)&&!couserData.containsKey(username)&&(username!="admin")&&(username!="user")) {
-		            userData.put(username, password);
-		            System.out.println("Sign up successful!");
-		            User e=new User(username,password,ee);
-		           
-					userList.add(e);
-		            return false;
-		        } 
-			 
-		   else {
-		            System.out.println("Username already exists. Please choose another username.");
-		            return true;
-		        }
-		   }
-		   else {
-			   
-			   System.out.println("password are not the same, Please rewrite your password");
-			   return true;
-		   }
-		    }
-
+	public boolean signUp(String username, String password, String repass, String ee) {
+	    if (!password.equals(repass)) {
+	        System.out.println("Passwords are not the same. Please rewrite your password.");
+	        return false;
+	    }
+	    if (!isStrongPassword(password)) {
+	        System.out.println("Your entered password is weak. Please choose a stronger password.");
+	        return false;
+	    }
+	    if (userData.containsKey(username) || couserData.containsKey(username) || username.equals("admin") || username.equals("user")) {
+	        System.out.println("Username already exists. Please choose another username.");
+	        return false;
+	    }
+	    userData.put(username, password);
+	    System.out.println("Sign up successful!");
+	    User e = new User(username, password, ee);
+	    userList.add(e);
+	    return true;
+	}
 		    
 		    
-		    public boolean signUp_couser(String username, String name, String email, String password,String repass) {
+		    
+	public boolean signUp_couser(String username, String name, String email, String password, String repass) {
+	    if (!password.equals(repass)) {
+	        System.out.println("Passwords are not the same. Please rewrite your password.");
+	        return true;
+	    }
 
-		    	   if(password.equals(repass)) {
-		    		   if (!isStrongPassword(password)) {
-					    	System.out.println("your entered paas is week,please rewrite password");
-					    	return true;
-					    }
-				     
-		    		   if (!isValidEmail(email)) {
-		    	           
-		    	            System.out.println("Email is not valid.");
-		    	            return true;
-		    	        }
-		    		   if (!couserData.containsKey(username)&&!userData.containsKey(username)&&(username!="admin")&&(username!="user1234")) {
-		    	            couserData.put(username, new CoUserData(name, email, password));
-		    	            System.out.println("Sign up successful!");
-		    	            return false;
-		    		   }
-		    		     
-		    	   else {
-		    	            System.out.println("coUsername already exists. Please choose another username.");
-		    	            return true;
-		    	        }
-		    	   }
-		    	   else {
-		    		   
-		    		   System.out.println("password are not the same, Please rewrite your password");
-		    		   return true;
-		    	   }
-		    	    }
+	    if (!isStrongPassword(password)) {
+	        System.out.println("Your entered password is weak. Please choose a stronger password.");
+	        return true;
+	    }
+
+	
+
+	    if (couserData.containsKey(username) || userData.containsKey(username) || username.equals("admin") || username.equals("user1234")) {
+	        System.out.println("CoUsername already exists. Please choose another username.");
+	        return true;
+	    }
+
+	    couserData.put(username, new CoUserData(name, email, password));
+	    System.out.println("Sign up successful!");
+	    return false;
+	}
+
 		    
 	public void coenterdata(String usernam,String pass,String repass,String name,String email) {
 		username=usernam;
@@ -105,18 +88,18 @@ public class SignUp {
 	}
 	
 	public static boolean isStrongPassword(String password) {
-        // Check if password length is at least 8 characters
+        
         if (password.length() < 8) {
             return false;
         }
 
-        // Check if password contains at least one uppercase letter
+       
         boolean containsUppercase = false;
-        // Check if password contains at least one lowercase letter
+        
         boolean containsLowercase = false;
-        // Check if password contains at least one digit
+       
         boolean containsDigit = false;
-        // Check if password contains at least one special character
+        
         boolean containsSpecial = false;
 
         for (char ch : password.toCharArray()) {
@@ -135,78 +118,49 @@ public class SignUp {
     }
     
 	
-	public static boolean isValidEmail(String email) {
-        // Regular expression pattern for validating email addresses
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 
-        // Compile the regex pattern
-        Pattern pattern = Pattern.compile(emailRegex);
 
-        // Create a Matcher object to match the pattern against the input email
-        Matcher matcher = pattern.matcher(email);
 
-        // Return true if the email matches the regex pattern, false otherwise
-        return matcher.matches();
-    }
-	
 	public boolean isValiadcouser() {
+	    if (!Pass.equals(rePass)) {
+	        System.out.println("Passwords are not the same. Please rewrite your password.");
+	        return false;
+	    }
 
- 	   if(Pass.equals(rePass)) {
- 		   if (!isStrongPassword(Pass)) {
-			    	System.out.println("your entered paas is week,please rewrite password");
-			    	return false;
-			    }
-		     
- 		   if (!isValidEmail(Email)) {
- 	           
- 	            System.out.println("Email is not valid.");
- 	            return false;
- 	        }
- 		   if (!couserData.containsKey(username)&&!userData.containsKey(username)&&(username!="admin")&&(username!="user1234")) {
- 	           // couserData.put(username, new CoUserData(Name, Email, Pass));
- 	           // System.out.println("Sign up successful!");
- 	            return true;
- 		   }
- 		     
- 	   else {
- 	            System.out.println("coUsername already exists. Please choose another username.");
- 	            return false;
- 	        }
- 	   }
- 	   else {
- 		   
- 		   System.out.println("password are not the same, Please rewrite your password");
- 		   return false;
- 	   }
- 	    }
- 
+	    if (!isStrongPassword(Pass)) {
+	        System.out.println("Your entered password is weak. Please choose a stronger password.");
+	        return false;
+	    }
+
 	
+
+	    if (couserData.containsKey(username) || userData.containsKey(username) || username.equals("admin") || username.equals("user1234")) {
+	        System.out.println("CoUsername already exists. Please choose another username.");
+	        return false;
+	    }
+
+	    return true;
+	}
+
 	
-	  public boolean isVallieduser() {
-		   if(Pass.equals(rePass)) {
-			   
-			   if (!isStrongPassword(Pass)) {
-			    	System.out.println("your entered paas is week,please rewrite password");
-			    	return false;
-			    }
-			   
-			     if (!userData.containsKey(username)&&!couserData.containsKey(username)&&(username!="admin")&&(username!="user1234")) {
-		           // userData.put(username, password);
-		           // System.out.println("Sign up successful!");
-		            return true;
-		        } 
-			 
-		   else {
-		            System.out.println("Username already exists. Please choose another username.");
-		            return false;
-		        }
-		   }
-		   else {
-			   
-			   System.out.println("password are not the same, Please rewrite your password");
-			   return false;
-		   }
-		    }
+	public boolean isVallieduser() {
+	    if (Pass.equals(rePass)) {
+	        if (!isStrongPassword(Pass)) {
+	            System.out.println("Your entered password is weak. Please choose a stronger password");
+	            return false;
+	        }
+	        
+	        if (!userData.containsKey(username) && !couserData.containsKey(username) && !username.equals("admin") && !username.equals("user1234")) {
+	            return true;
+	        } else {
+	            System.out.println("Username already exists. Please choose another username.");
+	            return false;
+	        }
+	    } else {
+	        System.out.println("Passwords are not the same. Please rewrite your password");
+	        return false;
+	    }
+	}
 	
 	  public boolean signup_couser() {
 			if (isValiadcouser()) {
@@ -251,4 +205,3 @@ public class SignUp {
 		}
 	}
 }
-    
