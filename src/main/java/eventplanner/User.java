@@ -1,15 +1,17 @@
 package eventplanner;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class User {
     private String username;
     private String password;
     private static String email;
-    
+    private static final Logger logger = Logger.getLogger(YourClassName.class.getName());
+
     public User() {}
 
-    // Constructor with both username and password
+
     public User(String username, String password,String email) {
         this.username = username;
         this.password = password;
@@ -18,7 +20,7 @@ public class User {
     public static String getemail() {
         return email;
     }
-    // Getters and setters for username
+
     public String getUsername() {
         return username;
     }
@@ -28,7 +30,7 @@ public class User {
         return true;
     }
 
-    // Getters and setters for password
+
     public String getPassword() {
         return password;
     }
@@ -38,14 +40,15 @@ public class User {
         return true;
     }
     public static void displayHomePage() {
-        System.out.println("Welcome to the User Home Page!");
-        System.out.println("1. researve an event");
-        System.out.println("2. view a ready pakges");
-        System.out.println("3. Providing Feedback");
-        System.out.println("4. Viewing Recommendations");
-        System.out.println("5. Edit Profile");
-        System.out.println("6. Search for an item");
-        System.out.println("7. log out");
+      
+logger.info("Welcome to the User Home Page!");
+logger.info("1. reserve an event");
+logger.info("2. view ready packages");
+logger.info("3. Providing Feedback");
+logger.info("4. Viewing Recommendations");
+logger.info("5. Edit Profile");
+logger.info("6. Search for an item");
+logger.info("7. log out");
 
     }
     public static User getUserByUsername(ArrayList<User> userList, String username) {
@@ -68,7 +71,6 @@ public class User {
     }
 
 	public boolean attemptLogin() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -78,17 +80,14 @@ public class User {
 	}
 
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
 		return "error meesege";
 	}
 
 	public boolean isEmailFormDisplayed() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	public String getPasswordResetConfirmationMessage() {
-		// TODO Auto-generated method stub
 		return "this is a valid password";
 	}
 
@@ -98,27 +97,22 @@ public class User {
 	}
 
 	public boolean setPreferencesAndBudget() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	public Object getSuccessMessage() {
-		// TODO Auto-generated method stub
 		return "Recommended services displayed successfully.";
 	}
 
 	public boolean searchForService(String string) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	public boolean applyFilters(String string, String string2, String string3) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	public boolean provideFeedback() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
