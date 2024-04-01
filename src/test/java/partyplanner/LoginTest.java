@@ -88,7 +88,7 @@ public class LoginTest {
 	    @When("co_user  enters correct email and password.")
 	    public void co_user_enters_correct_email_and_password() {
 	    	suser.coenterdata("ahmadsa", "ahmad ", "ahmadsama@hotmail.com","Ah1@1234", "Ah1@1234");
-          suser.signup_couser();
+          suser.scouser();
 	   	 assertEquals(false,!user.COauthenticate("ahmadsa", "Ah1@1234"));
 
 	    }
@@ -97,7 +97,7 @@ public class LoginTest {
 	    public void co_user_is_logged_into_the_co_user_page() {
 	 
 	    	suser.coenterdata("ahmadsa", "ahmad ", "ahmadsama@hotmail.com","Ah1@1234", "Ah1@1234");
-          suser.signup_couser();
+          suser.scouser();
 	      	 assertEquals(false,!user.COauthenticate("ahmadsa", "Ah1@1234"));
 
 	    }
