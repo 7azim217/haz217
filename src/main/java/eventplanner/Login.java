@@ -13,16 +13,13 @@ public class Login {
     
 
     public boolean aauthenticate(String username, String password) {
-        // Retrieve admin username and password from a secure source, such as environment variables or a configuration file
         String adminUsername = System.getenv("ADMIN_USERNAME");
         String adminPassword = System.getenv("ADMIN_PASSWORD");
 
-        // Check if the provided username and password match the admin credentials
         if (adminUsername != null && adminPassword != null && username.equals(adminUsername) && password.equals(adminPassword)) {
             System.out.println("Welcome to admin page!");
             return true;
         } else {
-            // Incorrect credentials
             return false;
         }
    
@@ -32,11 +29,9 @@ public class Login {
 	
         }
     public boolean sauthenticate(String username, String password) {
-        // Retrieve user username and password from a secure source, such as environment variables or a configuration file
         String userUsername = System.getenv("USER_USERNAME");
         String userPassword = System.getenv("USER_PASSWORD");
 
-        // Check if the provided username and password match the user credentials
         if (userUsername != null && userPassword != null && username.equals(userUsername) && password.equals(userPassword)) {
             System.out.println("Welcome to service provider");
             return true;
