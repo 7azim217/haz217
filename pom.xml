@@ -1,31 +1,24 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>eventplanner</groupId>
-  <artifactId>eventplanner</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-		 <properties>
-       
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <groupId>eventplanner</groupId>
+    <artifactId>eventplanner</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
-
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-         <sonar.organization>abdalsalamjod</sonar.organization>
-         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.coverage.exclusions>
-            **/eventplanner/Main.java,
-            **/eventplanner/MainUtility.java,
-            
-        </sonar.coverage.exclusions>
-        <sonar.exclusions>
-            **/application/LoggerUtility.java
-        </sonar.exclusions>
-
+        <sonar.organization>abdalsalamjod</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.coverage.exclusions>**/eventplanner/Main.java,**/eventplanner/MainUtility.java</sonar.coverage.exclusions>
+        <sonar.exclusions>**/application/LoggerUtility.java</sonar.exclusions>
     </properties>
-  <dependencies>
-	  
-	  <dependency>
+
+    <dependencies>
+       <dependency>
 <groupId>io.cucumber</groupId>
 <artifactId>cucumber-java</artifactId>
 <version>7.15.0</version>
@@ -45,13 +38,6 @@
 <artifactId>cucumber-core</artifactId>
 <version>7.15.0</version>
 </dependency>
-
-<dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.9.1</version>
-        <scope>test</scope>
-    </dependency>
 
 
 <dependency>
@@ -95,8 +81,6 @@
 </dependency>
 
 
-    
-
-</dependencies>
+    </dependencies>
 
 </project>
