@@ -52,23 +52,24 @@ public boolean signUp(String username, String password, String repass, String ee
 }
    
 	public boolean signUp_couser(String username, String name, String email, String password, String repass) {
+		boolean f=false;
 	    if (!password.equals(repass)) {
 	        System.out.println("Passwords are not the same. Please rewrite your password.");
-	        return true;
+	        f=true;
 	    }
 
 	    if (!isStrongPassword(password)) {
 	        System.out.println("Your entered password is weak. Please choose a stronger password.");
-	        return true;
+	        f=true;
 	    }
 
 	
 
 	    if (couserData.containsKey(username) || userData.containsKey(username) || username.equals("admin") || username.equals("user1234")) {
 	        System.out.println("CoUsername already exists. Please choose another username.");
-	        return true;
+	         f=true;
 	    }
-
+if(f==true)return true;
 	    couserData.put(username, new CoUserData(name, email, password));
 	    System.out.println("Sign up successful!");
 	    return false;
