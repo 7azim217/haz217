@@ -14,6 +14,8 @@ public class SignUp {
 	public String rePass;
 	public String Email;
 	public String Name;
+			 public static final String SIGN_UP_SUCCESS_MESSAGE = "Sign up successful!";
+
     private static final AtomicReference<Pattern> emailPattern = new AtomicReference<>();
 	 public Map<String, String> userData;
 	    protected Map<String, CoUserData> couserData;
@@ -26,28 +28,29 @@ public class SignUp {
 	        couserData = new HashMap<String, CoUserData>();
 		
 	}
-	public boolean signUp(String username, String password, String repass, String ee) {
-	    if (!password.equals(repass)) {
-	        System.out.println("Passwords are not the same. Please rewrite your password.");
-	        return false;
-	    }
-	    if (!isStrongPassword(password)) {
-	        System.out.println("Your entered password is weak. Please choose a stronger password.");
-	        return false;
-	    }
-	    if (userData.containsKey(username) || couserData.containsKey(username) || username.equals("admin") || username.equals("user")) {
-	        System.out.println("Username already exists. Please choose another username.");
-	        return false;
-	    }
-	    userData.put(username, password);
-	    System.out.println("Sign up successful!");
-	    User e = new User(username, password, ee);
-	    userList.add(e);
-	    return true;
-	}
+	
 		    
-		    
-		    
+
+public boolean signUp(String username, String password, String repass, String ee) {
+    if (!password.equals(repass)) {
+        System.out.println("Passwords are not the same. Please rewrite your password.");
+        return false;
+    }
+    if (!isStrongPassword(password)) {
+        System.out.println("Your entered password is weak. Please choose a stronger password.");
+        return false;
+    }
+    if (userData.containsKey(username) || couserData.containsKey(username) || username.equals("admin") || username.equals("user")) {
+        System.out.println("Username already exists. Please choose another username.");
+        return false;
+    }
+    userData.put(username, password);
+    System.out.println(SIGN_UP_SUCCESS_MESSAGE);
+    User e = new User(username, password, ee);
+    userList.add(e);
+    return true;
+}
+   
 	public boolean signUp_couser(String username, String name, String email, String password, String repass) {
 	    if (!password.equals(repass)) {
 	        System.out.println("Passwords are not the same. Please rewrite your password.");
